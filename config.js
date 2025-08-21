@@ -1,111 +1,168 @@
-const disableSetup = false;
-var topBarCenterText = `VA3HDL - FN04ga`;
+// CUT START
+var disableSetup = false; // Manually set to true to disable setup page menu option
+var topBarCenterText = "K4FZN - EM94ow";
 
-// Grid layout
+// Grid layout desired
 var layout_cols = 4;
 var layout_rows = 3;
 
 // Menu items
-// Structure is as follows HTML Color code, Option, target URL, scaling 1=Original Size, side (optional, nothing is Left, "R" is Right)
+// Structure is as follows: HTML Color code, Option, target URL, scaling 1=Original Size, side (optional, nothing is Left, "R" is Right)
 // The values are [color code, menu text, target link, scale factor, side],
 // add new lines following the structure for extra menu options. The comma at the end is important!
 var aURL = [
-  ["2196F3", "CLUBLOG", "https://clublog.org/livestream/VA3HDL", "1.7"],
   [
-    "2196F3",
+    "#2196f3",
+    "CLUBLOG",
+    "https://clublog.org/livestream/KR4DAL",
+    1,
+    "L"
+  ],
+  [
+    "#2196f3",
     "CONTEST",
     "https://www.contestcalendar.com/fivewkcal.html",
-    "1",
+    1,
+    "L"
   ],
-  ["2196F3", "DX CLUSTER", "https://dxcluster.ha8tks.hu/map/", "1"],
   [
-    "2196F3",
+    "#2196f3",
+    "DX CLUSTER",
+    "https://dxcluster.ha8tks.hu/map/",
+    1,
+    "L"
+  ],
+  [
+    "#2196f3",
     "LIGHTNING",
     "https://map.blitzortung.org/#3.87/36.5/-89.41",
-    "1",
-    "R",
-  ],
-  ["2196F3", "PISTAR", "http://pi-star.local/", "1.2"],
-  [
-    "2196F3",
-    "RADAR",
-    "https://weather.gc.ca/?layers=alert,radar&center=43.39961001,-78.53212031&zoom=6&alertTableFilterProv=ON",
-    "1",
+    1,
     "R"
   ],
-  ["2196F3", "TIME.IS", "https://time.is/", "1", "R"],
   [
-    "2196F3",
+    "#2196f3",
+    "PISTAR",
+    "http://pi-star.local/",
+    1,
+    "L"
+  ],
+  [
+    "#2196f3",
+    "RADAR",
+    "https://weather.gc.ca/?layers=alert,radar&center=43.39961001,-78.53212031&zoom=6&alertTableFilterProv=ON",
+    1,
+    "R"
+  ],
+  [
+    "#2196f3",
+    "TIME.IS",
+    "https://time.is/",
+    1,
+    "R"
+  ],
+  [
+    "#2196f3",
     "WEATHER",
-    "https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=44.0157&lon=-79.4591&zoom=5",
-    "1",
-    "R",
+    "https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=35.1199&lon=-81.1450&zoom=5",
+    1,
+    "R"
   ],
   [
-    "2196F3",
+    "#2196f3",
     "WINDS",
-    "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-78.79,44.09,3000",
-    "1",
-    "R",
-  ],
+    "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-82.053,35.969",
+    1,
+    "R"
+  ]
 ];
 
-// Dashboard items
-// Structure is Title, Image Source URL
-// [Title, Image Source URL],
+// Feed items
+// Structure is as follows: target URL
+// The values are [target link]
+var aRSS = [
+  [
+    "https://www.amsat.org/feed/",
+    60
+  ],
+  [
+    "https://daily.hamweekly.com/atom.xml",
+    120
+  ]
+];
+
+// Dashboard Tiles items
+// Tile Structure is Title, Source URL
+// To display a website on the tiles use "iframe|" keyword before the tile URL
+// [Title, Source URL],
 // the comma at the end is important!
-// You can't add more items because there are only 12 placeholders on the dashboard
-// but you can replace the titles and the images with anything you want.
 var aIMG = [
-  ["RADAR", "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"],
+  [
+    "RADAR",
+    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"
+  ],
   [
     "LOCAL RADAR",
-    "https://radar.weather.gov/ridge/standard/KNQA_loop.gif",
+    "https://radar.weather.gov/ridge/standard/KCAE_loop.gif"
   ],
   [
     "NOAA D-RAP",
-    "https://services.swpc.noaa.gov/images/animations/d-rap/global/d-rap/latest.png",
+    "https://services.swpc.noaa.gov/images/animations/d-rap/global/d-rap/latest.png"
   ],
   [
     "ISS POSITION",
-    "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544",
+    "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
-    "SATELLITE CAN",
-    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/can/EXTENT3/GOES16-CAN-EXTENT3-1125x560.gif",
+    "SATELLITE SE",
+    "https://cdn.star.nesdis.noaa.gov/GOES19/GLM/SECTOR/se/EXTENT3/GOES19-SE-EXTENT3-600x600.gif"
   ],
   [
     "SATELLITE CGL",
-    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/cgl/EXTENT3/GOES16-CGL-EXTENT3-600x600.gif",
+    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/cgl/EXTENT3/GOES16-CGL-EXTENT3-600x600.gif"
   ],
   [
     "LIGHTNING",
-    "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa",
+    "https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa"
   ],
   [
     "LIGHTNING LOCAL",
-    "https://www.blitzortung.org/en/Images/image_b_ny.png",
+    "https://www.blitzortung.org/en/Images/image_b_fl.png"
   ],
-  ["YOUTUBE EXAMPLE", "iframe|https://www.youtube.com/embed/fzPFaXAV_2Y?autoplay=1&mute=1"],
   [
-    "WEBSITE EXAMPLE",
-    "iframe|https://globe.adsbexchange.com/?airport=YYZ",
+    "TEMP/R",
+    "https://www.weather.gov/images/rah/statebrief/MaxT_SFC-Day1State.png",
+    "https://www.weather.gov/images/rah/statebrief/MinT_SFC-Day1State.png"
   ],
-  ["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4"],
-  ["HF PROPAGATION",
-    "https://www.hamqsl.com/solar101vhf.php"],
+  [
+    "CLT",
+    "iframe|https://globe.adsbexchange.com/?airport=CLT"
+  ],
+  [
+    "WATCHES and WARNINGs",
+    "https://forecast.weather.gov/wwamap/png/US.png"
+  ],
+  [
+    "National Forecast/R",
+    "https://www.wpc.ncep.noaa.gov/noaa/noaad1.gif",
+    "https://www.wpc.ncep.noaa.gov/noaa/noaad2.gif",
+    "https://www.wpc.ncep.noaa.gov/noaa/noaad3.gif"
+  ]
 ];
 
-// Image rotation intervals in milliseconds per tile - If the line below is commented, all tiles will be rotated every 30000 milliseconds (30s)
+// Image rotation intervals in milliseconds per tile - If the line below is commented, tiles will be rotated every 5000 milliseconds (5s)
 var tileDelay = [
-  11200,10000,11000,10100,
-  10200,10500,10300,10600,
-  30400,60700,60900,10800
+  11200,
+  10000,
+  11000,
+  10100,
+  10200,
+  10500,
+  10300,
+  10600,
+  30400,
+  60700,
+  60900,
+  10800
 ];
 
-// RSS feed items
-// Structure is [feed URL, refresh interval in minutes]
-var aRSS = [
-  ["https://www.amsat.org/feed/", 60],           // Example RSS feed, refresh every 60 minutes
-  ["https://daily.hamweekly.com/atom.xml", 120], // Example Atom feed, refresh every 120 minutes
-  ];
+// CUT END
