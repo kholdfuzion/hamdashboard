@@ -135,7 +135,7 @@ var aIMG = [
   ],
   [
     "CLT",
-    "iframe|https://globe.adsbexchange.com/?airport=CLT"
+    "iframe|https://globe.airplanes.live/?airport=CLT"
   ],
   [
     "WATCHES and WARNINGs",
