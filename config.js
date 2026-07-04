@@ -106,10 +106,10 @@ var aIMG = [
   ],
   [
     "NOAA D-RAP",
-    "https://services.swpc.noaa.gov/images/animations/d-rap/global/d-rap/latest.png"
+    "https://www.dxinfocentre.com/tr_map/fcst/eam006.png"
   ],
   [
-    "ISS POSITION",
+    "TROPO",
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
