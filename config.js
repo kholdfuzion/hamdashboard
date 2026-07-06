@@ -106,7 +106,7 @@ var aIMG = [
   ],
   [
     "NOAA D-RAP",
-    "https://www.dxinfocentre.com/tr_map/fcst/eam006.png"
+    "https://www.dxinfocentre.com/tr_map/fcst/eam012.png"
   ],
   [
     "TROPO",
