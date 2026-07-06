@@ -105,11 +105,11 @@ var aIMG = [
     "https://radar.weather.gov/ridge/standard/KCAE_loop.gif"
   ],
   [
-    "NOAA D-RAP",
+    "TROPO",
     "https://www.dxinfocentre.com/tr_map/fcst/eam012.png"
   ],
   [
-    "TROPO",
+    "ISS POSITION",
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
